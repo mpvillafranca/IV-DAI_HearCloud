@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Hearcloud {% endblock %}
+
+{% block content %}
+<div class="container">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Sign in</h2>
+	<p>
+		<a href="{% url 'social:begin' 'facebook' %}" type="button" class="btn btn-primary btn-lg btn-lg-customize-fb"><span class="icon-facebook"></span>Facebook</a>
+		<!--<button type="button" class="btn btn-primary btn-lg btn-lg-customize-tw"><span class="icon-twitter"></span>Twitter</button>-->
+	</p>
+	<div class="social-sign-in-separator sc-font-light sc-text-light">
+		<span>or</span>
+	</div>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+</div> <!-- /container -->
+{% endblock %}
