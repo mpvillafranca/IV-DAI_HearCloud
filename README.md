@@ -29,7 +29,7 @@ Sincronizar la base de datos y lanzar el servidor:
 ## Infraestructura
 Se creará la infraestructura necesaria para la aplicación en la nube. En concreto, se prevee contar con:
 
-1. Servidores web con su correspondiente balanceador.
+1. Servidores web.
 2. Servidores de base de datos.
 3. Travis para trabajar con integración continua.
 
