@@ -2,8 +2,6 @@ language: python
 python:
  - "2.7"
 install:
- - sudo apt-get install python-dev
- - pip install --upgrade pip 
- - pip install -r requirements/local.txt
+ - make install
 script:
- - python hearcloud/manage.py test apps.tests --settings=hearcloud.settings.local
+ - make test

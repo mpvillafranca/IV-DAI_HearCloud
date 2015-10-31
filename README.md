@@ -39,5 +39,20 @@ Proyecto inscrito en el [certamen de Proyectos Libres de la UGR 2015-2016](http:
 
 ![Imagen Inscripción](http://oi61.tinypic.com/k03vyc.jpg)
 
+# Segundo hito
+
+## Tecnologías utilizadas
+Se ha decidido hacer uso del framework **Django** para el desarrollo de la aplicación, soportado por una base de datos **SQLite**. En un futuro, y en base a la funcionalidad esperada de la aplicación, quizas se integre una base de datos **MongoDB**, dejando la SQL para tareas como la gestión de usuarios.
+
+## Herramienta de construcción
+Python permite el uso de archivos como herramienta de construcción, de forma similar a como lo hacen otros leguajes.
+
+## Integración continua y TDD
+Se ha decidido seguir una metodología de desarrollo basado en pruebas (TDD), basándonos en la repetición de un tiempo muy corto de ciclo de desarrollo. De esta forma, creamos pruebas automatizadas que definen mejoras deseadas o nuevas funciones. A continuación, se produce una cantidad mínima de código para pasar esa prueba, y finalmente se refactoriza el código escrito. De esta forma, evitamos el código innecesario, pues solamente escribimos el mínimo código posible para pasar la prueba. Esto hará también más facil la modificación de código cuando el proyecto está en producción.
+
+Para automatizar este proceso, se ha creado un archivo **Makefile**, de forma que llamando a `make test`, se llame a todos los comandos necesarios.
+
+Para la integración continua, se ha utilizado Travis, que permite testear el código del proyecto de una manera facil y sencilla. Para ello, se accede a la página de Travis y basta con registrarse, haciendo uso de Github, y sincronizar el repositorio. Una vez generado y agregado al repositorio el archivo `travis.yml`, Travis se iniciará automáticamente, indicando si se pasan los tests o no.
+
 ## Contacto
 Para cualquier consulta: mpvillafranca@correo.ugr.es
