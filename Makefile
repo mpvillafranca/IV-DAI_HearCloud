@@ -1,5 +1,5 @@
 install:
-	sudo apt-get install python-dev
+	apt-get install python-dev
 	pip install --upgrade pip 
 	pip install -r requirements/local.txt
 
