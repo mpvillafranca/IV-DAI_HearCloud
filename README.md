@@ -54,5 +54,12 @@ Para automatizar este proceso, se ha creado un archivo **Makefile**, de forma qu
 
 Para la integración continua, se ha utilizado Travis, que permite testear el código del proyecto de una manera facil y sencilla. Para ello, se accede a la página de Travis y basta con registrarse, haciendo uso de Github, y sincronizar el repositorio. Una vez generado y agregado al repositorio el archivo `travis.yml`, Travis se iniciará automáticamente, indicando si se pasan los tests o no.
 
+# Tercer hito
+Para el despliegue de la aplicación en un PaaS, hemos utilizado Heroku, debido a su facil integración con GitHub y por ser mayormente gratuita. Para realizar el deployment, necesitamos crear un fichero [Procfile](/hearcloud/Procfile) a la altura donde se encuentre nuestro `manage.py`.
+
+	web: gunicorn hearcloud.wsgi
+
+Una vez realizado todo esto, podemos acceder [aquí](https://hearcloud.herokuapp.com/) para comprobar que se ha desplegado correctamente.
+
 ## Contacto
 Para cualquier consulta: mpvillafranca@correo.ugr.es

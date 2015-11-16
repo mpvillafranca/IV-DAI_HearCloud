@@ -73,3 +73,4 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/' # Despues de login
 SOCIAL_AUTH_LOGIN_URL = '/error/' # Cuando se produzcan errores
 SOCIAL_AUTH_USER_MODEL = 'users.User'
 SOCIAL_AUTH_FACEBOOK_SCOPE=['email']
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']

@@ -10,7 +10,13 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
+from dj_static import Cling
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hearcloud.settings")
+ON_HEROKU = os.environ.get('PORT')
+if ON_HEROKU:
+	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hearcloud.settings.staging")
+	application = Cling(get_wsgi_application())
+else:
+	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hearcloud.settings.local")
+	application = get_wsgi_application()
 
-application = get_wsgi_application()
