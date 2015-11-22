@@ -60,5 +60,5 @@ docs/_build/
 virtualenvs/
 
 # Heroku
-hearcloud/staticfiles/
-hearcloud/requirements.txt
+*/staticfiles/
+*/requirements.txt
