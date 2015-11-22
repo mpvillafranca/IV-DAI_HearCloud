@@ -57,8 +57,8 @@ docs/_build/
 *.sqlite3
 
 # Virtualenv
-virtualenv/
+virtualenvs/
 
 # Heroku
-staticfiles/
+hearcloud/staticfiles/
 hearcloud/requirements.txt
