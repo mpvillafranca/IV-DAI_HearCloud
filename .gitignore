@@ -58,7 +58,3 @@ docs/_build/
 
 # Virtualenv
 virtualenvs/
-
-# Heroku
-*/staticfiles/
-*/requirements.txt
