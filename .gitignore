@@ -58,3 +58,6 @@ docs/_build/
 
 # Virtualenv
 virtualenvs/
+
+# Heroku
+virtualenvs/
