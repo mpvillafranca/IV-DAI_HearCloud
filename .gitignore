@@ -60,4 +60,4 @@ docs/_build/
 virtualenvs/
 
 # Heroku
-virtualenvs/
+staticfiles/
