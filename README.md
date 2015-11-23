@@ -23,8 +23,8 @@ Instalar las dependencias:
 
 Sincronizar la base de datos y lanzar el servidor:
 
-    python hearcloud/manage.py syncdb --settings=hearcloud.settings.local
-    python hearcloud/manage.py runserver --settings=hearcloud.settings.local
+    python manage.py syncdb --settings=hearcloud.settings.local
+    python manage.py runserver --settings=hearcloud.settings.local
 
 ## Infraestructura
 Se creará la infraestructura necesaria para la aplicación en la nube. En concreto, se prevee contar con:
