@@ -1,9 +1,29 @@
+# Lenguaje de programacion 
 language: python
+
+# Version Python
 python:
- - "2.7"
+  - "2.7" 
+
+# Provisionamiento de la maquina
 install:
-- sudo apt-get install python-dev
-- pip install --upgrade pip 
-- pip install -r requirements/local.txt
+  - sudo apt-get install python-dev
+  - pip install --upgrade pip
+  - pip install -r requirements/staging.txt
+
+# Ejecucion de pruebas
 script:
-- python manage.py test apps.tests --settings=hearcloud.settings.local
+  - python manage.py test apps.tests --settings=hearcloud.settings.staging
+
+# Ejecutamos solo los test de la rama master del repositorio
+branches:
+  - only:
+    - master
+
+# Notificamos los resultados de los test por correo
+notifications:
+  recipients:
+    - mpvillafranca@correo.ugr.es
+  email:
+    on_success: change
+    on_failure: always

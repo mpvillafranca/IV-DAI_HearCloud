@@ -1,0 +1,19 @@
+# Distribucion de desarrollo
+build_environment: Ubuntu 14.04
+
+# Lenguaje de programacion
+language: python
+
+# Version Python
+python:
+  - "2.7"
+
+# Provisionamiento de la maquina
+install:
+  - sudo apt-get install python-dev
+  - pip install --upgrade pip
+  - pip install -r requirements/staging.txt
+
+# Ejecucion de pruebas
+script:
+ - python manage.py test apps.tests --settings=hearcloud.settings.staging
