@@ -9,7 +9,7 @@ ALLOWED_HOSTS = ['*']
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 if HEROKU_ENVIRONMENT:
     import urlparse
-    url = urlparse(env["DATABASE_URL"])
+    url = urlparse.urlparse(env["DATABASE_URL"])
     DATABASES = {
 	    'default': {
 	        'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -33,7 +33,7 @@ elif TRAVIS_ENVIRONMENT:
     }
 elif SNAP_CI_ENVIRONMENT:
     import urlparse
-    url = urlparse(env["SNAP_DB_PG_URL"])
+    url = urlparse.urlparse(env["SNAP_DB_PG_URL"])
     DATABASES = {
         'default': {
             'ENGINE':   'django.db.backends.postgresql_psycopg2',
