@@ -1,5 +1,16 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from unipath import Path
+import os
+
+LOCAL_DEVELOPMENT = True
+HEROKU_ENVIRONMENT, TRAVIS_ENVIRONMENT = False, False
+
+if 'HEROKU_ENVIRONMENT' in os.environ:
+    LOCAL_DEVELOPMENT = False
+    HEROKU_ENVIRONMENT = True
+elif 'TRAVIS' in os.environ:
+    LOCAL_DEVELOPMENT = False
+    TRAVIS_ENVIRONMENT = True
 
 BASE_DIR = Path(__file__).ancestor(3)
 

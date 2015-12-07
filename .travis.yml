@@ -5,11 +5,18 @@ language: python
 python:
   - "2.7" 
 
+# Servicios a usar
+services: postgresql
+
 # Provisionamiento de la maquina
 install:
   - sudo apt-get install python-dev
   - pip install --upgrade pip
   - pip install -r requirements/staging.txt
+
+# Acciones antes de comenzar las pruebas
+before_script:
+  - psql -c "CREATE DATABASE travisdb;" -U postgres
 
 # Ejecucion de pruebas
 script:
@@ -22,8 +29,6 @@ branches:
 
 # Notificamos los resultados de los test por correo
 notifications:
-  recipients:
-    - mpvillafranca@correo.ugr.es
   email:
     on_success: change
     on_failure: always

@@ -7,16 +7,30 @@ ALLOWED_HOSTS = ['*']
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-DATABASES = {
-	'default': {
-	    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-	    'NAME': 'dfk2oo5e440rm1',
-		'USER': 'upqwtyepgkxgyl',
-		'PASSWORD': 'rMBhKn9XlYICwlsNboUgZIFAWZ',
-		'HOST': 'ec2-50-16-229-89.compute-1.amazonaws.com',
-		'PORT': '5432',
-	}
-}
+if HEROKU_ENVIRONMENT:
+    import urlparse
+    url = urlparse(env["DATABASE_URL"])
+    DATABASES = {
+	    'default': {
+	        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	        'NAME': url.path[1:],
+		    'USER': url.username,
+		    'PASSWORD': url.password,
+		    'HOST': url.hostname,
+		    'PORT': url.port,
+	    }
+    }
+elif TRAVIS_ENVIRONMENT:
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+            'NAME':     'travisdb',
+            'USER':     'postgres',
+            'PASSWORD': '',
+            'HOST':     'localhost',
+            'PORT':     '',
+        }
+    }
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
