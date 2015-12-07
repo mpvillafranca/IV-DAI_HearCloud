@@ -14,7 +14,9 @@ elif 'TRAVIS' in os.environ:
 elif 'SNAP_CI' in os.environ:
     LOCAL_DEVELOPMENT = False
     SNAP_CI_ENVIRONMENT = True
-    
+
+if not HEROKU_ENVIRONMENT:
+    env = os.environ
 
 BASE_DIR = Path(__file__).ancestor(3)
 
