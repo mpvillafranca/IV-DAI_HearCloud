@@ -6,7 +6,7 @@ En primer lugar, un fichero [Procfile](../Procfile) y un fichero con las depende
 Por último, ejecutamos un script que automatice el proceso de despliegue:
 
 ```
-wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh   
+wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 heroku login
 heroku create
 git add .

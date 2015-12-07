@@ -31,6 +31,19 @@ elif TRAVIS_ENVIRONMENT:
             'PORT':     '',
         }
     }
+elif SNAP_CI_ENVIRONMENT:
+    import urlparse
+    url = urlparse(env["SNAP_DB_PG_URL"])
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+	        'NAME': url.path[1:],
+		    'USER': url.username,
+		    'PASSWORD': url.password,
+		    'HOST': url.hostname,
+		    'PORT': url.port,
+        }
+    }
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'

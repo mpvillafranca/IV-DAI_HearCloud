@@ -3,7 +3,7 @@ from unipath import Path
 import os
 
 LOCAL_DEVELOPMENT = True
-HEROKU_ENVIRONMENT, TRAVIS_ENVIRONMENT = False, False
+HEROKU_ENVIRONMENT, TRAVIS_ENVIRONMENT, SNAP_CI_ENVIRONMENT = False, False, False
 
 if 'HEROKU_ENVIRONMENT' in os.environ:
     LOCAL_DEVELOPMENT = False
@@ -11,6 +11,10 @@ if 'HEROKU_ENVIRONMENT' in os.environ:
 elif 'TRAVIS' in os.environ:
     LOCAL_DEVELOPMENT = False
     TRAVIS_ENVIRONMENT = True
+elif 'SNAP_CI' in os.environ:
+    LOCAL_DEVELOPMENT = False
+    SNAP_CI_ENVIRONMENT = True
+    
 
 BASE_DIR = Path(__file__).ancestor(3)
 
