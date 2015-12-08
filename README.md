@@ -3,6 +3,8 @@
 > Plataforma cloud de audio en la que sus usuarios pueden subir su música, escucharla y compartirla.
 
 [![Build Status](https://travis-ci.org/mpvillafranca/hear-cloud.svg?branch=master)](https://travis-ci.org/mpvillafranca/hear-cloud)
+[![Snap CI](https://snap-ci.com/mpvillafranca/hear-cloud/branch/master/build_image)](https://snap-ci.com/mpvillafranca/hear-cloud/branch/master)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](http://hearcloud.herokuapp.com/)
 
 ## Introducción
 **HearCloud** es un proyecto de plataforma cloud de audio, donde sus usuarios pueden subir su música, escucharla y compartirla, desarrollada con un framework de alto nivel (Django) teniendo en cuenta que la creación de toda la Infraestructura Virtual (IV) cumple los objetivos marcados: lenguajes de configuración, prueba, despliegue, integración continua, herramientas de construcción, entornos virtuales y testeo.
