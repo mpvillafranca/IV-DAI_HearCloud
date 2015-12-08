@@ -89,6 +89,10 @@ SOCIAL_AUTH_USER_MODEL = 'users.User'
 SOCIAL_AUTH_FACEBOOK_SCOPE=['email']
 FACEBOOK_EXTENDED_PERMISSIONS = ['email']
 
+STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR.child('static')]
+
 # LOCAL
 if LOCAL_DEVELOPMENT:
     DEBUG = True
@@ -112,10 +116,6 @@ else:
     DEBUG = True
     TEMPLATE_DEBUG = False 
     ALLOWED_HOSTS = ['*']
-
-    STATIC_URL = '/static/'
-    STATIC_ROOT = 'staticfiles'
-    STATICFILES_DIRS = [BASE_DIR.child('static')]
 
     SOCIAL_AUTH_FACEBOOK_KEY='519053204921748'
     SOCIAL_AUTH_FACEBOOK_SECRET='f4716f67a0465d0f61ee3eca5a302e48'
