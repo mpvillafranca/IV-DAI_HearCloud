@@ -20,7 +20,7 @@ before_script:
 
 # Ejecucion de pruebas
 script:
-  - python manage.py test apps.tests --settings=hearcloud.settings.staging
+  - python manage.py test apps.tests
 
 # Ejecutamos solo los test de la rama master del repositorio
 branches:

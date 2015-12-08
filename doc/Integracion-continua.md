@@ -20,7 +20,7 @@ services: postgresql
 install:
   - sudo apt-get install python-dev
   - pip install --upgrade pip
-  - pip install -r requirements/staging.txt
+  - pip install -r requirements.txt
 
 # Acciones antes de comenzar las pruebas
 before_script:
@@ -28,7 +28,7 @@ before_script:
 
 # Ejecucion de pruebas
 script:
-  - python manage.py test apps.tests --settings=hearcloud.settings.staging
+  - python manage.py test apps.tests
 
 # Ejecutamos solo los test de la rama master del repositorio
 branches:

@@ -20,9 +20,6 @@ if not HEROKU_ENVIRONMENT:
 
 BASE_DIR = Path(__file__).ancestor(3)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0q0ax-!_=#tucxt%%-nerf1r4k4do18e%d72=&+l-08-w+_pzk'
 
@@ -91,3 +88,76 @@ SOCIAL_AUTH_LOGIN_URL = '/error/' # Cuando se produzcan errores
 SOCIAL_AUTH_USER_MODEL = 'users.User'
 SOCIAL_AUTH_FACEBOOK_SCOPE=['email']
 FACEBOOK_EXTENDED_PERMISSIONS = ['email']
+
+# LOCAL
+if LOCAL_DEVELOPMENT:
+    DEBUG = True
+    TEMPLATE_DEBUG = True 
+    ALLOWED_HOSTS = []
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR.child('hearcloud_db.sqlite3'),
+        }
+    }
+
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [BASE_DIR.child('static')]
+
+    SOCIAL_AUTH_FACEBOOK_KEY='519053204921748'
+    SOCIAL_AUTH_FACEBOOK_SECRET='f4716f67a0465d0f61ee3eca5a302e48'
+
+else:
+    DEBUG = True
+    TEMPLATE_DEBUG = False 
+    ALLOWED_HOSTS = ['*']
+
+    STATIC_URL = '/static/'
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = [BASE_DIR.child('static')]
+
+    SOCIAL_AUTH_FACEBOOK_KEY='519053204921748'
+    SOCIAL_AUTH_FACEBOOK_SECRET='f4716f67a0465d0f61ee3eca5a302e48'
+
+#SOCIAL_AUTH_TWITTER_KEY=
+#SOCIAL_AUTH_TWITTER_SECRET=
+
+## STAGING 
+if HEROKU_ENVIRONMENT:
+    import urlparse
+    url = urlparse.urlparse(env["DATABASE_URL"])
+    DATABASES = {
+	    'default': {
+	        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	        'NAME': url.path[1:],
+		    'USER': url.username,
+		    'PASSWORD': url.password,
+		    'HOST': url.hostname,
+		    'PORT': url.port,
+	    }
+    }
+elif TRAVIS_ENVIRONMENT:
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+            'NAME':     'travisdb',
+            'USER':     'postgres',
+            'PASSWORD': '',
+            'HOST':     'localhost',
+            'PORT':     '',
+        }
+    }
+elif SNAP_CI_ENVIRONMENT:
+    import urlparse
+    url = urlparse.urlparse(env["SNAP_DB_PG_URL"])
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+	        'NAME': url.path[1:],
+		    'USER': url.username,
+		    'PASSWORD': url.password,
+		    'HOST': url.hostname,
+		    'PORT': url.port,
+        }
+    }
