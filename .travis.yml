@@ -12,7 +12,7 @@ services: postgresql
 install:
   - sudo apt-get install python-dev
   - pip install --upgrade pip
-  - pip install -r requirements/staging.txt
+  - pip install -r requirements.txt
 
 # Acciones antes de comenzar las pruebas
 before_script:
