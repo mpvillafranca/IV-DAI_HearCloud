@@ -28,9 +28,9 @@ if not HEROKU_ENVIRONMENT:
 from django.core.wsgi import get_wsgi_application
 
 if LOCAL_DEVELOPMENT:
-	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hearcloud.settings.local")
-	application = get_wsgi_application()
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hearcloud.settings.local")
+    application = get_wsgi_application()
 else:
     from dj_static import Cling
-	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hearcloud.settings.staging")
-	application = Cling(get_wsgi_application())
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hearcloud.settings.staging")
+    application = Cling(get_wsgi_application())
