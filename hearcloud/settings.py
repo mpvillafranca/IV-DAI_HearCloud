@@ -18,7 +18,7 @@ elif 'SNAP_CI' in os.environ:
 if not HEROKU_ENVIRONMENT:
     env = os.environ
 
-BASE_DIR = Path(__file__).ancestor(3)
+BASE_DIR = Path(__file__).ancestor(2)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0q0ax-!_=#tucxt%%-nerf1r4k4do18e%d72=&+l-08-w+_pzk'
