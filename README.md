@@ -49,7 +49,22 @@ Como parte del desarrollo de la apliación, decimimos realizar un deployment a H
 
 Podemos consultar el resultado en: [https://hearcloud.herokuapp.com/](https://hearcloud.herokuapp.com/).
 
-Para más información, hacer [click aquí](./doc/Heroku-.md).
+Para más información, hacer [click aquí](./doc/Heroku-deployment.md).
+
+## Entorno de pruebas: [Docker](https://www.docker.com/)
+
+Docker es una herramienta que permite automatizar el despliegue de aplicaciones dentro de contenedores software, lo cual facilita probarla en un entorno aislado para su posterior despliegue a producción. 
+
+Podemos acceder a la imagen de la aplicación creada haciendo [click aquí](https://hub.docker.com/r/mpvillafranca/hearcloud/). A continuación, para crear el entorno de pruebas, basta con ejecutar los siguientes comandos:
+
+```
+sudo apt-get update
+sudo apt-get install -y docker.io
+sudo docker pull mpvillafranca/hearcloud
+sudo docker run -t -i mpvillafranca/hearcloud /bin/bash
+```
+
+Para más información, hacer [click aquí](./doc/Docker.md).
 
 ## Inscripción en el certamen de proyectos de la UGR organizado por la OSL
 
