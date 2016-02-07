@@ -1,28 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'users/base_login.html' %}
 
 {% block title %} Hearcloud {% endblock %}
 
-{% block content %}
-<div class="container">
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Sign in</h2>
-	<p>
-		<a href="{% url 'social:begin' 'facebook' %}" type="button" class="btn btn-primary btn-lg btn-lg-customize-fb"><span class="icon-facebook"></span>Facebook</a>
-		<!--<button type="button" class="btn btn-primary btn-lg btn-lg-customize-tw"><span class="icon-twitter"></span>Twitter</button>-->
-	</p>
-	<div class="social-sign-in-separator sc-font-light sc-text-light">
-		<span>or</span>
-	</div>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
+{% block content_block %}
+{% include "header.html" %}
+<div class="container-fluid">
+<div class="page-start">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="col-md-push-4 col-md-4 text-center">
+                    <a href="#" class="btn btn-social btn-facebook btn-sm"><i class="fa fa-facebook"></i>Ingresar con Facebook</a>
+                    <a href="#" class="btn btn-social btn-twitter btn-sm"><i class="fa fa-twitter"></i>Ingresar con Twitter</a>
+                <hr>
+                <form role="form" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_username" style="float:left">{{ login_form.username.label }}</label>
+                        {{ login_form.username }}
+                        {{ login_form.username.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password" style="float:left">{{ login_form.password.label }}</label>
+                        {{ login_form.password }}
+                        {{ login_form.password.errors }}
+                    </div>
+                    <button type="Submit" name="register_form" class="btn btn-primary pull-right">Sign in</button>
+                </form>
+            </div>
+
+        </div>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  </form>
-</div> <!-- /container -->
-{% endblock %}
+</div>
+</div>
+{% endblock content_block %}

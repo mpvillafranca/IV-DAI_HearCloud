@@ -20,7 +20,7 @@ admin.autodiscover()
 
 urlpatterns = [
 	url(r'^',include('apps.home.urls')),
-	url(r'^users/',include('apps.users.urls',namespace='users')),
+	url(r'^',include('apps.users.urls',namespace='users_app')),
 	
 	# Python social auth
 	url('',include('social.apps.django_app.urls',namespace='social')),

@@ -1,3 +1,62 @@
-.form-left-label{
-	float: left;
+.page-start{
+    padding: 40px 15px;
+}
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    margin-bottom: 3px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.btn-social>:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    line-height: 34px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.1)
+}
+.btn-social.btn-sm {
+    padding-left: 38px
+}
+.btn-social.btn-sm>:first-child {
+    line-height: 28px;
+    width: 28px;
+    font-size: 1.4em
+}
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0, 0, 0, 0)
+}
+.btn-facebook:hover, .btn-facebook:focus{
+    color: #fff;
+    background-color: #2d4373;
+    border-color: rgba(0, 0, 0, 0)
+}
+.btn-twitter {
+    color: #fff;
+    background-color: #55acee;
+    border-color: rgba(0, 0, 0, 0)
+}
+.btn-twitter:hover, .btn-twitter:focus {
+    color: #fff;
+    background-color: #2795e9;
+    border-color: rgba(0, 0, 0, 0)
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-twitter:before {
+    content: "\f099";
 }
