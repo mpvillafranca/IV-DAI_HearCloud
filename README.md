@@ -7,7 +7,7 @@
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](http://hearcloud.herokuapp.com/)
 
 ## Introducción
-**HearCloud** es un proyecto de plataforma cloud de audio, donde sus usuarios pueden subir su música, escucharla y compartirla, desarrollada con un framework de alto nivel (Django) teniendo en cuenta que la creación de toda la Infraestructura Virtual (IV) cumple los objetivos marcados: lenguajes de configuración, prueba, despliegue, integración continua, herramientas de construcción, entornos virtuales y testeo.
+**HearCloud** es un proyecto de plataforma cloud de audio, donde sus usuarios pueden subir su música, escucharla, organizarla y bajársela de nuevo en todo momento, desarrollada con un framework de alto nivel (Django) teniendo en cuenta que la creación de toda la Infraestructura Virtual (IV) cumple los objetivos marcados: lenguajes de configuración, prueba, despliegue, integración continua, herramientas de construcción, entornos virtuales y testeo.
 
 ## Instalación
 
@@ -21,11 +21,11 @@ Instalar las dependencias:
 
     sudo apt-get install python-dev
     pip install --upgrade pip
-    pip install -r requirements/local.txt
+    pip install -r requirements.txt
 
-Sincronizar la base de datos y lanzar el servidor:
+Realizar las migraciones de la base de datos y lanzar el servidor:
 
-    python manage.py syncdb
+    python manage.py migrate
     python manage.py runserver
 
 ## Infraestructura
@@ -65,6 +65,18 @@ sudo docker run -t -i mpvillafranca/hearcloud /bin/bash
 ```
 
 Para más información, hacer [click aquí](./doc/Docker.md).
+
+## Despliegue automático en un IaaS: Azure
+Para realizar un despliegue automático en un IaaS como Azure, hacemos uso de dos herramientas básicas: `Vagrant` para la creación y configuración de la máquina virtual y `Ansible` para su aprovisionamiento. Para ello, creamos los correspondientes ficheros `Vagrantfile` y `.yml` de ansible.
+
+Todo esto se ha unificado en un solo script, y basta con ejecutarlo para crear de forma automática la máquina en azure, aprovisionarla y lanzar el servidor que corra nuestra aplicación:
+
+```
+$ ./deploy-azure.sh
+```
+
+Para más información, hacer [click aquí](./doc/VagrantAnsible.md).
+
 
 ## Inscripción en el certamen de proyectos de la UGR organizado por la OSL
 

@@ -3,9 +3,9 @@ from unipath import Path
 import os
 
 LOCAL_DEVELOPMENT = True
-HEROKU_ENVIRONMENT, TRAVIS_ENVIRONMENT, SNAP_CI_ENVIRONMENT = False, False, False
+HEROKU_ENVIRONMENT, TRAVIS_ENVIRONMENT, SNAP_CI_ENVIRONMENT, AZURE_ENVIRONMENT = False, False, False, False
 
-if 'HEROKU_ENVIRONMENT' in os.environ:
+if 'HEROKU' in os.environ:
     LOCAL_DEVELOPMENT = False
     HEROKU_ENVIRONMENT = True
 elif 'TRAVIS' in os.environ:
@@ -14,6 +14,9 @@ elif 'TRAVIS' in os.environ:
 elif 'SNAP_CI' in os.environ:
     LOCAL_DEVELOPMENT = False
     SNAP_CI_ENVIRONMENT = True
+elif 'AZURE' in os.environ:
+    LOCAL_DEVELOPMENT = False
+    AZURE_ENVIRONMENT = True
 
 if not HEROKU_ENVIRONMENT:
     env = os.environ
@@ -112,16 +115,13 @@ if LOCAL_DEVELOPMENT:
     SOCIAL_AUTH_FACEBOOK_KEY='519053204921748'
     SOCIAL_AUTH_FACEBOOK_SECRET='f4716f67a0465d0f61ee3eca5a302e48'
 
+    #SOCIAL_AUTH_TWITTER_KEY=
+    #SOCIAL_AUTH_TWITTER_SECRET=
+
 else:
     DEBUG = True
     TEMPLATE_DEBUG = False 
     ALLOWED_HOSTS = ['*']
-
-    SOCIAL_AUTH_FACEBOOK_KEY='519053204921748'
-    SOCIAL_AUTH_FACEBOOK_SECRET='f4716f67a0465d0f61ee3eca5a302e48'
-
-#SOCIAL_AUTH_TWITTER_KEY=
-#SOCIAL_AUTH_TWITTER_SECRET=
 
 ## STAGING 
 if HEROKU_ENVIRONMENT:
@@ -159,5 +159,17 @@ elif SNAP_CI_ENVIRONMENT:
 		    'PASSWORD': url.password,
 		    'HOST': url.hostname,
 		    'PORT': url.port,
+        }
+    }
+## PRODUCTION
+elif AZURE_ENVIRONMENT:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'hearcloud',
+            'USER': 'dbuser',
+            'PASSWORD':'',
+            'HOST': '',
+            'PORT': '',
         }
     }
