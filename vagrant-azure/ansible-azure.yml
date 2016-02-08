@@ -11,7 +11,10 @@
     apt: update_cache=yes upgrade=dist
     sudo: yes
 
-  - name: Instalar python y PostgreSQL
+  - name: Establecer variable de sesion presencia de Azure
+    command: sudo echo "AZURE=yes" >> /etc/environment
+
+  - name: Instalar python, PostgreSQL y otros paquetes
     action: apt pkg={{ item }} state=present
     sudo: yes
     with_items:
@@ -22,6 +25,7 @@
       - postgresql 
       - postgresql-contrib
       - python-psycopg2
+      - libjpeg-dev
 
   - name: Asegurar que el servicio PostgreSQL está levantado
     service: name=postgresql state=started enabled=yes
@@ -59,9 +63,11 @@
     with_items:
     - git
 
-  - name: Actualizar pip
+  - name: Instalar pip
     command: sudo easy_install pip
-    command: sudo pip install --upgrade pip
+
+  - name: Actualizar pip
+    command: pip install --upgrade pip
 
   - name: Instalar servidor wsgi Gunicorn
     command: sudo pip install gunicorn
