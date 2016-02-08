@@ -3,7 +3,7 @@ from unipath import Path
 import os
 
 LOCAL_DEVELOPMENT = True
-HEROKU_ENVIRONMENT, TRAVIS_ENVIRONMENT, SNAP_CI_ENVIRONMENT, AZURE_ENVIRONMENT = False, False, False, False
+HEROKU_ENVIRONMENT, TRAVIS_ENVIRONMENT, SNAP_CI_ENVIRONMENT = False, False, False
 
 if 'HEROKU' in os.environ:
     LOCAL_DEVELOPMENT = False
@@ -14,9 +14,6 @@ elif 'TRAVIS' in os.environ:
 elif 'SNAP_CI' in os.environ:
     LOCAL_DEVELOPMENT = False
     SNAP_CI_ENVIRONMENT = True
-elif 'AZURE' in os.environ:
-    LOCAL_DEVELOPMENT = False
-    AZURE_ENVIRONMENT = True
 
 if not HEROKU_ENVIRONMENT:
     env = os.environ
@@ -104,8 +101,12 @@ if LOCAL_DEVELOPMENT:
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR.child('hearcloud_db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'hearcloud',
+            'USER': 'dbuser',
+            'PASSWORD':'',
+            'HOST': '',
+            'PORT': '',
         }
     }
 
@@ -159,17 +160,5 @@ elif SNAP_CI_ENVIRONMENT:
 		    'PASSWORD': url.password,
 		    'HOST': url.hostname,
 		    'PORT': url.port,
-        }
-    }
-## PRODUCTION
-elif AZURE_ENVIRONMENT:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'hearcloud',
-            'USER': 'dbuser',
-            'PASSWORD':'',
-            'HOST': '',
-            'PORT': '',
         }
     }

@@ -90,8 +90,8 @@
 
   - name: Directorio para servir archivos estaticos con nginx
     command: sudo mkdir -p /var/www
-    command: sudo cp -r hear-cloud/static/ /var/www/
-    command: sudo cp -r hear-cloud/media/ /var/www/ 
+    command: sudo cp -r hear-cloud/static/ /var/www/static
+    command: sudo cp -r hear-cloud/media/ /var/www/media
     
   - name: Copiar configuracion de supervisor
     command: sudo mv hear-cloud/vagrant-azure/production-webconfig/supervisor.conf /etc/supervisor/conf.d/
