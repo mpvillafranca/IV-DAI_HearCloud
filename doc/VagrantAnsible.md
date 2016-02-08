@@ -31,10 +31,9 @@ $ openssl x509 -inform pem -in vagrant-azure.key -outform der -out vagrant-azure
 
 Una vez generado, subimos el fichero `vagrant-azure.cer` al apartado de _Certificados de administración_ de la web de azure.
 
-Además, para que podamos autenticarnos en azure con el _Vagrantfile_, deberemos crear un nuevo archivo `.pem` al que le concatenaremos el archivo `.key`, para ello:
+Además, para que podamos autenticarnos en azure con el _Vagrantfile_, deberemos crear un nuevo archivo `.pem` con el contenido del archivo `.key`, para ello:
 
 ```
-$ openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out vagrant-azure.pem
 $ cat vagrant-azure.key > vagrant-azure.pem
 ```
 

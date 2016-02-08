@@ -9,15 +9,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
     
   config.vm.provider :azure do |azure|
-    azure.mgmt_certificate = File.expand_path('~/vagrant-azure.pem')
+    azure.mgmt_certificate = File.expand_path('/home/mpvillafranca/vagrant-azure.pem')
     azure.mgmt_endpoint = 'https://management.core.windows.net'
     azure.subscription_id = '2ef4708d-b747-46b3-bee6-a75d47f2ee62'
     azure.vm_image = 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20160201-en-us-30GB'
-    azure.vm_name = 'hearcloud'
-    azure.vm_user = 'hearclouduser'
-    azure.vm_password = '12345'
+    azure.vm_name = 'hearcloud' # max 15 characters. contains letters, number and hyphens. can start with letters and can end with letters and numbers
+    azure.vm_password = 'Mariano94#' # min 8 characters. should contain a lower case letter, an uppercase letter, a number and a special character
     azure.vm_location = 'East Asia' 
-    azure.cloud_service_name = 'hearcloud'
+    azure.cloud_service_name = 'hearcloud' # same as vm_name.
     azure.ssh_port = '22'
     azure.tcp_endpoints = '80:80'
   end
