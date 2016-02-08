@@ -44,7 +44,7 @@ $ vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/d
 ```
 
 ### Vagrant
-Ya estamos listos, ahora crearemos el archivo _Vagrantfile_, cuyo contenido puede consultarse [aquí](../VagrantAzure/Vagrantfile).
+Ya estamos listos, ahora crearemos el archivo _Vagrantfile_, cuyo contenido puede consultarse [aquí](../vagrant-azure/Vagrantfile).
 
 Con esto, realizamos tres tareas principalmente:
 
@@ -56,7 +56,7 @@ Con esto, realizamos tres tareas principalmente:
 No obstante, antes de ejecutar el comando `vagrant provider`, debemos definir la variable de entorno `ANSIBLE_HOSTS` (`export ANSIBLE_HOSTS = ...`).
 
 ### Ansible
-El archivo `ansible-azure.yml`, que provee a la máquina azure de todo lo necesario para la ejecución de nuestra aplicación, puede consultarse [aquí](../VagrantAzure/ansible-azure.yml).
+El archivo `ansible-azure.yml`, que provee a la máquina azure de todo lo necesario para la ejecución de nuestra aplicación, puede consultarse [aquí](../vagrant-azure/ansible-azure.yml).
 
 Además, en el archivo `ansible_hosts`, indicamos que trabajamos con una máquina localhost (pues estamos proveyendo la propia máquina).
 
