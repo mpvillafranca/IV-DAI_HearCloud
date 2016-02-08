@@ -20,9 +20,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     azure.ssh_port = '22'
     azure.tcp_endpoints = '80:80'
   end
-  
-  config.ssh.username = 'hearclouduser' 
-  config.ssh.password = '12345'
 
   config.vm.provision "ansible" do |ansible|
 	ansible.sudo = true
