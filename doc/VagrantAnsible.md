@@ -39,7 +39,7 @@ El aprovisionamiento de nuestra máquina se describe en el fichero `hearcloud.ym
     - Instalar `supervisord` para arrancar y mantener arrancado el servidor gnunicorn. De esta forma, supervisord vigilará que el proceso siempre esté ejecutandose.
 
 ### Fabric
-Por último, el fichero fabfile.py de Fabric se encargará de:
+Por último, el fichero [fabfile.py](../vagrant-azure/fabfile.py) de Fabric se encargará de:
 
 - Copiar los archivos estáticos a su directorio correspondiente: `/var/etc/www`
 - Copiar la configuración de nginx que se [adjunta en el repositorio](../vagrant-azure/production-webconfig/default) y consiste principalmente en un servidor web servidor web para archivos en `/static` y un proxy inverso que se pasa a la aplicación wsgi.
