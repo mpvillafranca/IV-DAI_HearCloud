@@ -1,0 +1,32 @@
+{% extends "home/base_index.html" %}
+{% block title %} Hearcloud {% endblock %}
+
+{% block content_block %}
+{% include "header.html" %}
+<div class="container-fluid">
+<div class="page-start">
+    <div class="page-header">
+        <h1>¡Hola {{ user.username|capfirst }}!</h1>
+        <h2>Aquí va el streaming de audio</h2>
+        <ul>
+        {% for file in data %}
+            <!--<li>
+                <div id="name"><a href="{{ file.audio_file }}" target="_blank">{{ file.name }}</a></div>
+                <div id="play">
+                    <audio src="{{ file.audio_file }}" controls="controls">Your browser does not support the audio element.</audio>
+                </div>
+            </li>-->
+        {% endfor %}
+        </ul>
+    </div>
+<style>
+    #name{
+        display: inline-block;
+        padding: 20px;
+        width: 250px;
+    }
+    #play{
+        display: inline-block;
+    }
+</style>
+{% endblock content_block %}

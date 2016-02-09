@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.shortcuts import render, redirect
 
 # Create your views here.
-class IndexView(TemplateView):
-	template_name = 'home/index.html'
+def index(request):
+    if request.user.is_authenticated():
+        return redirect('/stream')
+    else:
+	    return render(request, 'home/index.html')

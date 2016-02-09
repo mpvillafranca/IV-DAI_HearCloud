@@ -21,6 +21,7 @@ admin.autodiscover()
 urlpatterns = [
 	url(r'^',include('apps.home.urls')),
 	url(r'^',include('apps.users.urls',namespace='users_app')),
+	url(r'^',include('apps.stream.urls',namespace='stream_app')),
 	
 	# Python social auth
 	url('',include('social.apps.django_app.urls',namespace='social')),

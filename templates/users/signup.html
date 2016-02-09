@@ -14,17 +14,17 @@
                 <hr>
                 <form role="form" method="POST">{% csrf_token %}
                     <div class="form-group">
-                        <label for="id_username" style="float:left">{{ user_register.username.label }}</label>
+                        <label for="id_username" style="float:left">{{ user_register.username.label }}</label></br>
                         {{ user_register.username }}
                         {{ user_register.username.errors }}
                     </div>
                     <div class="form-group">
-                        <label for="id_email" style="float:left">{{ user_register.email.label }}</label>
+                        <label for="id_email" style="float:left">{{ user_register.email.label }}</label></br>
                         {{ user_register.email }}
                         {{ user_register.email.errors }}
                     </div>
                     <div class="form-group">
-                        <label for="id_password" style="float:left">{{ user_register.password.label }}</label>
+                        <label for="id_password" style="float:left">{{ user_register.password.label }}</label></br>
                         {{ user_register.password }}
                         {{ user_register.password.errors }}
                     </div>
