@@ -5,8 +5,6 @@
   become_method: sudo
   vars:
     db_name: hearcloud
-    db_user: dbuser
-    db_password: 12345678
   tasks:
   - name: Actualizar repositorios de paquetes
     apt: update_cache=yes
@@ -39,15 +37,17 @@
   - name: Creación del usuario de base de datos especificado con los privilegios adecuados
     become_user: postgres
     postgresql_user: 
-      db={{ db_name }}
-      name={{ db_user }}
-      password={{ db_password }}
+      db={{db_name}}
+      name=dbuser
+      password=12345678
       priv=ALL
       role_attr_flags=NOSUPERUSER,NOCREATEDB
       state=present
          
   - name: Obtener la aplicacion de Github
-    git: repo=https://github.com/mpvillafranca/hear-cloud.git  dest=hear-cloud clone=yes force=yes
+    become_user: vagrant
+    git: repo=https://github.com/mpvillafranca/hear-cloud.git  dest=/home/vagrant/hear-cloud clone=yes force=yes
     
   - name: Instalar dependencias de la aplicacion
-    pip: requirements=~/hear-cloud/requirements.txt
+    become_user: vagrant
+    pip: requirements=/home/vagrant/hear-cloud/requirements.txt

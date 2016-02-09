@@ -27,7 +27,7 @@ Para la creación del [fichero Vagrantfile](../vagrant-azure/Vagrantfile) que le
 
 - `azure.mgmt_certificate`: aquí pondremos la ruta a nuestro `.pem`.
 - `azure.subscription_id`: aquí pondremos la id de nuestra suscripción de Azure
-- `azure.vm_password`: aquí pondremos la clave para el administrador la máquina. Esta clave es la que habrá que indicar también a Fabric en el script para lanzar la aplicación.
+- `azure.vm_password`: aquí pondremos la clave para el administrador la máquina. Esta misma contraseña, habrá que indicarla en el script [`deploy.sh`](../vagrant-azure/doploy.sh) para que Fabric tenga acceso a la máquina.
 
 ### Ansible
 El aprovisionamiento de nuestra máquina se describe en el fichero `hearcloud.yml`, que puede consultarse [aquí](../vagrant-azure/hearcloud.yml). Además, en el archivo `ansible_hosts`, indicamos que trabajamos con una máquina localhost (pues estamos proveyendo la propia máquina). En concreto, las tareas que realiza son:

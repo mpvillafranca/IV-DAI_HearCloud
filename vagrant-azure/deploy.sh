@@ -15,4 +15,6 @@ sudo pip install paramiko PyYAML jinja2 httplib2 ansible
 export ANSIBLE_HOSTS=./ansible_hosts
 vagrant up --provider=azure
 
-# Despliegue de la app
+# Despliegue de la aplicación con Fabric
+sudo pip install fabric
+fab -p 'Mariano94!' -H vagrant@hearcloud.cloudapp.net runserver
