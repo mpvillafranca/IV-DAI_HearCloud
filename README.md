@@ -1,6 +1,6 @@
 # HearCloud
 
-> Plataforma cloud de audio en la que sus usuarios pueden subir su música, escucharla y compartirla.
+> Plataforma cloud de audio en la que sus usuarios pueden subir su música, organizarla y escucharla.
 
 [![Build Status](https://travis-ci.org/mpvillafranca/hear-cloud.svg?branch=master)](https://travis-ci.org/mpvillafranca/hear-cloud)
 [![Snap CI](https://snap-ci.com/mpvillafranca/hear-cloud/branch/master/build_image)](https://snap-ci.com/mpvillafranca/hear-cloud/branch/master)
@@ -68,12 +68,12 @@ sudo docker run -t -i mpvillafranca/hearcloud /bin/bash
 Para más información, hacer [click aquí](./doc/Docker.md).
 
 ## Despliegue automático en un IaaS: Azure
-Para realizar un despliegue automático en un IaaS como Azure, hacemos uso de dos herramientas básicas: `Vagrant` para la creación y configuración de la máquina virtual y `Ansible` para su aprovisionamiento. Para ello, creamos los correspondientes ficheros `Vagrantfile` y `.yml` de ansible.
+Para realizar un despliegue automático en un IaaS como Azure, hacemos uso de dos herramientas básicas: `Vagrant` para la creación y configuración de la máquina virtual y `Ansible` para su aprovisionamiento. Para ello, creamos los correspondientes ficheros [`Vagrantfile`](./vagrant-azure/Vagrantfile) y [`hearcloud.yml`](./vagrant-azure/hearcloud.yml) de ansible. Además, hacemos uso de Fabric para realizar unas últimas gestiones y poner en marcha el servidor.
 
-Todo esto se ha unificado en un solo script, y basta con ejecutarlo para crear de forma automática la máquina en azure, aprovisionarla y lanzar el servidor que corra nuestra aplicación:
+Todo esto se ha unificado en un [solo script](./vagrant-azure/deploy.sh), y basta con ejecutarlo para crear de forma automática la máquina en azure, aprovisionarla y lanzar el servidor que corra nuestra aplicación:
 
 ```
-$ ./deploy-azure.sh
+$ ./deploy.sh
 ```
 
 Para más información, hacer [click aquí](./doc/VagrantAnsible.md).
