@@ -13,6 +13,7 @@ sudo pip install paramiko PyYAML jinja2 httplib2 ansible
 
 # Despliegue en Azure
 export ANSIBLE_HOSTS=./ansible_hosts
+vagrant box add azure https://github.com/msopentech/vagrant-azure/raw/master/dummy.box
 vagrant up --provider=azure
 
 # Despliegue de la aplicación con Fabric
