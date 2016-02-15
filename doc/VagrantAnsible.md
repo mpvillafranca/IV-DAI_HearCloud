@@ -20,7 +20,7 @@ Así, subiríamos el fichero `.cer` a Azure y el fichero `.pem`, debería tener 
 -----END RSA PRIVATE KEY-----
 ```
 
-El script [`deploy.sh`](../vagrant-azure/doploy.sh) descarga e instala lo necesario y empieza con el despligue haciendo uso de `Vagrant` y `Ansible`. Una vez creada y aprovisionada, lanza la ejecución de la aplicación mediante [Fabric](http://www.fabfile.org/). No obstante, primero deberemos introducir algunos de nuestros datos en dichos ficheros, como se detalla a continuación.
+El script [`deploy.sh`](../vagrant-azure/deploy.sh) descarga e instala lo necesario y empieza con el despligue haciendo uso de `Vagrant` y `Ansible`. Una vez creada y aprovisionada, lanza la ejecución de la aplicación mediante [Fabric](http://www.fabfile.org/). No obstante, primero deberemos introducir algunos de nuestros datos en dichos ficheros, como se detalla a continuación.
 
 ### Vagrant
 Para la creación del [fichero Vagrantfile](../vagrant-azure/Vagrantfile) que levanta nuestra máquina en Azure, consultamos la documentación del plugin [aquí](https://github.com/Azure/vagrant-azure) y configuramos las variables que nos interesan. El usuario, deberá reemplazar tres de los valores que aquí aparecen por los suyos propios:
