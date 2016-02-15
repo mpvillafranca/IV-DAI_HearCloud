@@ -4,9 +4,9 @@ Configurando el despliegue en máquina virtual usando vagrant con el provisionad
 Lo primero de todo es almacenar nuestro certificado de administración en Azure. Para ello, tal y como vemos [aquí](https://github.com/Azure/vagrant-azure/issues/65), ejecutamos lo siguiente:
 
 ```
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout vagrant.key -out vagrant.key
-$ openssl x509 -inform pem -in vagrant.key -outform der -out vagrant.cer
-$ cat vagrant.key > vagrant.pem
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout azurevagrant.key -out azurevagrant.key
+$ openssl x509 -inform pem -in azurevagrant.key -outform der -out azurevagrant.cer
+$ cat azurevagrant.key > azurevagrant.pem
 ```
 
 Así, subiríamos el fichero `.cer` a Azure y el fichero `.pem`, debería tener la forma:
