@@ -7,7 +7,7 @@ MOVED TO: http://github.com/mpvillafranca/hearcloud
 [![Build Status](https://travis-ci.org/mpvillafranca/hear-cloud.svg?branch=master)](https://travis-ci.org/mpvillafranca/hear-cloud)
 [![Snap CI](https://snap-ci.com/mpvillafranca/hear-cloud/branch/master/build_image)](https://snap-ci.com/mpvillafranca/hear-cloud/branch/master)
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](http://hearcloud.herokuapp.com/)
-[![Azure](https://camo.githubusercontent.com/9285dd3998997a0835869065bb15e5d500475034/687474703a2f2f617a7572656465706c6f792e6e65742f6465706c6f79627574746f6e2e706e67)](http://hearcloud.cloudapp.net)
+[![Azure](https://camo.githubusercontent.com/9285dd3998997a0835869065bb15e5d500475034/687474703a2f2f617a7572656465706c6f792e6e65742f6465706c6f79627574746f6e2e706e67)](http://hearcloud.cloudapp.net) [Suscripción de Azure caducada]
 
 ## Introducción
 **HearCloud** es un proyecto de plataforma cloud de audio, donde sus usuarios pueden subir su música, escucharla, organizarla y bajársela de nuevo en todo momento, desarrollada con un framework de alto nivel (Django) teniendo en cuenta que la creación de toda la Infraestructura Virtual (IV) cumple los objetivos marcados: lenguajes de configuración, prueba, despliegue, integración continua, herramientas de construcción, entornos virtuales y testeo.
@@ -69,7 +69,7 @@ sudo docker run -t -i mpvillafranca/hearcloud /bin/bash
 
 Para más información, hacer [click aquí](./doc/Docker.md).
 
-## Despliegue automático en un IaaS: Azure
+## Despliegue automático en un IaaS: Azure [Suscripción de Azure caducada]
 Para realizar un despliegue automático en un IaaS como Azure, hacemos uso de dos herramientas básicas: `Vagrant` para la creación y configuración de la máquina virtual y `Ansible` para su aprovisionamiento. Para ello, creamos los correspondientes ficheros [`Vagrantfile`](./vagrant-azure/Vagrantfile) y [`hearcloud.yml`](./vagrant-azure/hearcloud.yml) de ansible. Además, hacemos uso de Fabric para realizar unas últimas gestiones y poner en marcha el servidor.
 
 Todo esto se ha unificado en un [solo script](./vagrant-azure/deploy.sh), y basta con ejecutarlo para crear de forma automática la máquina en azure, aprovisionarla y lanzar el servidor que corra nuestra aplicación:
